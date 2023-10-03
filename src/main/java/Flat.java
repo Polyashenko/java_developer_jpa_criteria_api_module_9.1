@@ -14,12 +14,13 @@ public class Flat implements Serializable {
         return seq;
     }
 
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     private String number;
     public String getNumber() {
         return number;
-    }
-    public String setNumber(String number) {
-        return this.number;
     }
 
 
