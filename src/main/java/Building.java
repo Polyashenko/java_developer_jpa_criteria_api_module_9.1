@@ -1,42 +1,42 @@
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.*;
 
+/**
+ * Represents a Building entity with a section number and address .
+ */
 @Entity
-@NamedQueries ({
-        @NamedQuery(name = "Building.findByAddress",
-                 query = "SELECT b FROM Building b WHERE b.address LIKE CONCAT('%',: address, '%'"),
+@Table(name = "building")
+@NamedQueries({
+//        @NamedQuery(name = "Building.findByAddress",
+//                query = "SELECT b FROM Building b WHERE b.address LIKE CONCAT('%',:address, '%'"),
         @NamedQuery(name = "Building.findAll",
                 query = "SELECT b FROM Building b")
 })
+public class Building {
 
-public class Building implements Serializable {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private long id;
-    public long getId(){
+    @Column(name = "id")
+    private int id;
 
+    @Column(name = "address")
+    private String address;
+
+    public int getId() {
         return id;
     }
 
     public String getAddress() {
-
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    private String address;
-
-    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-
-    private List<Flat> flats = new ArrayList<>();
-
-    public List<Flat> getFlats() {
-
-        return flats;
+    @Override
+    public String toString() {
+        return "Building{" +
+                "id=" + id +
+                ", address='" + address + '\'' +
+                '}';
     }
 }
