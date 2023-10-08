@@ -1,16 +1,13 @@
 import jakarta.persistence.*;
 
+import java.util.List;
+
 /**
  * Represents a Building entity with a section number and address .
  */
 @Entity
 @Table(name = "building")
-@NamedQueries({
-//        @NamedQuery(name = "Building.findByAddress",
-//                query = "SELECT b FROM Building b WHERE b.address LIKE CONCAT('%',:address, '%'"),
-        @NamedQuery(name = "Building.findAll",
-                query = "SELECT b FROM Building b")
-})
+
 public class Building {
 
     @Id
@@ -19,6 +16,11 @@ public class Building {
 
     @Column(name = "address")
     private String address;
+
+     @OneToMany(mappedBy = "building", fetch = FetchType.LAZY)
+     private List<Apartment> apartments;
+
+
 
     public int getId() {
         return id;

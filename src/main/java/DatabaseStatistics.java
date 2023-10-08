@@ -19,7 +19,7 @@ public class DatabaseStatistics {
             " a.area AS area" +
             " FROM" +
             " person AS p" +
-            " JOIN aparnment_ownership AS o ON p.id = o.person_id" +
+            " JOIN apartment_ownership AS o ON p.id = o.person_id" +
             " JOIN apartment AS a ON o.apartment_id = a.id" +
             " JOIN building AS b ON a.building_id = b.id" +
             " JOIN resident AS r ON p.id = r.person_id" +
@@ -45,9 +45,9 @@ public class DatabaseStatistics {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 
-        Query query = entityManager.createNamedQuery("Building.findAll",
+        Query query = entityManager.createNamedQuery("Person.findAll",
                 Building.class);
-        List<Building> result = query.getResultList();
+        List<Person> result = query.getResultList();
         System.out.println(result);
 
 

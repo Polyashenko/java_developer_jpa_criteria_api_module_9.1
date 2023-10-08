@@ -1,4 +1,4 @@
-INSERT INTO aparnment_ownership (building_id, person_id, apartment_id) VALUES
+INSERT INTO apartment_ownership (building_id, person_id, apartment_id) VALUES
     (1, 1, 1),
     (1, 2, 2),
     (1, 3, 3),

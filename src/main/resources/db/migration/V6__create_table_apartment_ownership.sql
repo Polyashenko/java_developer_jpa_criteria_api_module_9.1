@@ -1,4 +1,4 @@
-CREATE TABLE aparnment_ownership (
+CREATE TABLE apartment_ownership (
     id INT AUTO_INCREMENT PRIMARY KEY,
     building_id INT,
     person_id int,

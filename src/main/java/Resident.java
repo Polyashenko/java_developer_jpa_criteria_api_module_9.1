@@ -16,15 +16,15 @@ public class Resident {
 
 
     @Column(name = "entry_right")
-    private boolean entry_right;
+    private boolean entryRight;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "apartment_id")
-    private Apartment apartmentId;
+    private Apartment apartment;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
-    private Person personId;
+    private Person person;
 
 
     public int getId() {
@@ -36,7 +36,15 @@ public class Resident {
     }
 
     public Person getPersonId() {
-        return personId;
+        return person;
     }
 
+    @Override
+    public String toString() {
+        return "Resident{" +
+                "id=" + id +
+                ", entryRight=" + entryRight +
+                ", apartment=" + apartment +
+                '}';
+    }
 }

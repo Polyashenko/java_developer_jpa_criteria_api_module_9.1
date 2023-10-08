@@ -18,9 +18,9 @@ public class Apartment {
     @Column(name = "area")
     private double area;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "building_id")
-    private Building buildingId;
+    private Building building;
 
     public int getId() {
         return id;
@@ -34,11 +34,21 @@ public class Apartment {
         return area;
     }
 
-    public Building getBuildingId() {
-        return buildingId;
+    public Building getBuilding() {
+        return building;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Apartment{" +
+                "id=" + id +
+                ", number=" + number +
+                ", area=" + area +
+                ", building=" + building +
+                '}';
     }
 }

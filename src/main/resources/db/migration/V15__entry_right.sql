@@ -7,7 +7,7 @@ SELECT
 FROM
     person AS p
 JOIN
-    aparnment_ownership AS o ON p.id = o.person_id
+    apartment_ownership AS o ON p.id = o.person_id
 JOIN
     apartment AS a ON o.apartment_id = a.id
 JOIN
